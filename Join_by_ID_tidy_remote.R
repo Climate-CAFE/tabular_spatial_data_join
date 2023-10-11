@@ -24,6 +24,7 @@ head(coshp)
 # Read in the tabular data, which is an annual average of daily Tmax 
 # (maximum air temperature in deg. C) for 2020 by county
 temp <- readRDS("Mean_Tmax_2020_Counties_CONUS.Rds")  ## this is the local-load version
+#temp <- readRDS("https://dataverse.harvard.edu/api/access/datafile/MY_RDS_FILE_ADDRESS")  ## this is a template of the remote-load version
 head(temp)
 
 ## once this data is uploaded to dataverse, we will replace the local-load RDS with a remote-load file.
