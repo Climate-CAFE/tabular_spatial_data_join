@@ -1,13 +1,18 @@
 # Join_by_ID_tidy_remote.R
-# JC 2023-10-10
+# KS & JC 2023-10-10
 
-# Josh's modification of Keith's Join_by_ID.R script to use tidy functions for wrangling
-#  and generating some maps with ggplot
+# A simple example of spatializing tabular data for use in mapping, using tidy functions
+#  for wrangling the data and generating some basic maps with ggplot.
 
-# Original script is a simple example of spatializing tabular data for use in mapping.
+# This script is designed to load the census shapefile from the remote-accessible
+#  census API. The tabular data is loaded locally using the
+#  Mean_Tmax_2020_Counties_CONUS.Rds file located in this repository.
 
-# This script is being rewritten to load all data from remote-accessible sources
-#  (originally was built with local data files)
+# Comments are included to demonstrate how each of these data sources might be loaded
+#  in an alternate fashion--i.e., loading the census shapefile from a local copy of the
+#  .shp file and its parent directory, or loading the temperature data from a Harvard
+#  Dataverse location using the Dataverse API.
+
 
 ## Packages & Data ----
 require(pacman) ## my preferred package manager within R scripts
@@ -27,8 +32,9 @@ temp <- readRDS("Mean_Tmax_2020_Counties_CONUS.Rds")  ## this is the local-load 
 #temp <- readRDS("https://dataverse.harvard.edu/api/access/datafile/MY_RDS_FILE_ADDRESS")  ## this is a template of the remote-load version
 head(temp)
 
-## once this data is uploaded to dataverse, we will replace the local-load RDS with a remote-load file.
-## for now, users will need to download both the code and this RDS file to reproduce analysis here
+## If your tabular dataset is uploaded to dataverse, you can replace the local-load RDS file with
+## a remote-load file following the format above. For this tutorial, you will need to download this
+## entire repository, including both this code and the accompanying RDS file, to reproduce this analysis
 
 # Note that two counties are expected to have missing temperature data due to
 # unavailability of data for these locations in the ERA5-Land input data set
